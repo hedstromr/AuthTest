@@ -58,6 +58,13 @@ namespace AuthTest.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class UpdateUserInfoViewModel
+    {
+        [Required]
+        [Display(Name = "UserType")]
+        public string UserType { get; set; }
+    }
+
     public class AddPhoneNumberViewModel
     {
         [Required]

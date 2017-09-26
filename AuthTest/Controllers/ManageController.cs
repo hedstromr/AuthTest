@@ -131,6 +131,34 @@ namespace AuthTest.Controllers
         }
 
         //
+        // GET: /Manage/UpdateUserInfo
+        public ActionResult UpdateUserInfo()
+        {
+            ApplicationUser userInfo = UserManager.FindById(User.Identity.GetUserId());
+            UpdateUserInfoViewModel model = new UpdateUserInfoViewModel() { UserType = userInfo.UserType };
+            return View(model);
+        }
+
+        //
+        // POST: /Manage/UpdateUserInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateUserInfo(UpdateUserInfoViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            ApplicationUser modelSaved = UserManager.FindById(User.Identity.GetUserId());
+
+            modelSaved.UserType = model.UserType;
+
+            // Save the updated information
+            var code = await UserManager.UpdateAsync(modelSaved);
+            return RedirectToAction("Index", "Manage");
+        }
+
+        //
         // POST: /Manage/EnableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
