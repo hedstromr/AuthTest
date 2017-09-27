@@ -48,7 +48,7 @@ namespace AuthTest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicationUsageID,ApplicationID,TrackedApplicationID")] ApplicationUsage applicationUsage)
+        public ActionResult Create([Bind(Include = "ApplicationUsageID,InvocationTime,TrackedApplicationID")] ApplicationUsage applicationUsage)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace AuthTest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ApplicationUsageID,ApplicationID,TrackedApplicationID")] ApplicationUsage applicationUsage)
+        public ActionResult Edit([Bind(Include = "ApplicationUsageID,InvocationTime,TrackedApplicationID")] ApplicationUsage applicationUsage)
         {
             if (ModelState.IsValid)
             {

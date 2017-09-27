@@ -12,7 +12,7 @@
             @Html.DisplayNameFor(model => model.TrackedApplication.TrackedApplicationName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApplicationID)
+            @Html.DisplayNameFor(model => model.InvocationTime)
         </th>
         <th></th>
     </tr>
@@ -23,7 +23,7 @@
             @Html.DisplayFor(modelItem => item.TrackedApplication.TrackedApplicationName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApplicationID)
+            @Html.DisplayFor(modelItem => item.InvocationTime)
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.ApplicationUsageID })

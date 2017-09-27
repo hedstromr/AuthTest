@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 
 namespace AuthTest.Models
 {
@@ -9,7 +10,7 @@ namespace AuthTest.Models
         }
 
         public int ApplicationUsageID { get; set; }
-        public int ApplicationID { get; set; }
+        public DateTime InvocationTime { get; set; }
 
         public int TrackedApplicationID { get; set; }
 
