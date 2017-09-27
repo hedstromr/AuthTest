@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AuthTest.Models.ApplicationUsage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrackedApplication.TrackedApplicationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrackedApplication.TrackedApplicationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ApplicationUsageID })
+        </td>
+    </tr>
+}
+
+</table>

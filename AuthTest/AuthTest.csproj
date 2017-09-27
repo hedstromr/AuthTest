@@ -190,8 +190,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationUsagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TrackedApplicationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,10 +205,16 @@
     <Compile Include="Migrations\201709261224494_UserType.Designer.cs">
       <DependentUpon>201709261224494_UserType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709271252407_ApplicationTracking.cs" />
+    <Compile Include="Migrations\201709271252407_ApplicationTracking.Designer.cs">
+      <DependentUpon>201709271252407_ApplicationTracking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUsageModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TrackedApplicationModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -267,6 +275,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Manage\UpdateUserInfo.cshtml" />
+    <Content Include="Views\TrackedApplications\Create.cshtml" />
+    <Content Include="Views\TrackedApplications\Delete.cshtml" />
+    <Content Include="Views\TrackedApplications\Details.cshtml" />
+    <Content Include="Views\TrackedApplications\Edit.cshtml" />
+    <Content Include="Views\TrackedApplications\Index.cshtml" />
+    <Content Include="Views\ApplicationUsages\Details.cshtml" />
+    <Content Include="Views\ApplicationUsages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -290,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709261224494_UserType.resx">
       <DependentUpon>201709261224494_UserType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271252407_ApplicationTracking.resx">
+      <DependentUpon>201709271252407_ApplicationTracking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

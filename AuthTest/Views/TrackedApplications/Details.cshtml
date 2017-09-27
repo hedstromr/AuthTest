@@ -1,0 +1,26 @@
+﻿@model AuthTest.Models.TrackedApplication
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrackedApplication</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrackedApplicationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrackedApplicationName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrackedApplicationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

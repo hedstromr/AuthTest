@@ -32,5 +32,9 @@ namespace AuthTest.Models
         {
             return new ApplicationDbContext();
         }
+
+        // All non identity DBContext classes
+        public DbSet<TrackedApplication> TrackedApplications { get; set; }
+        public DbSet<ApplicationUsage> ApplicationUsages { get; set; }
     }
 }

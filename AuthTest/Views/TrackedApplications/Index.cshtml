@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AuthTest.Models.TrackedApplication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrackedApplicationName)
+        </th>
+        <th>
+            Usage
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrackedApplicationName)
+        </td>
+        <td>
+            @Html.ActionLink("42", "Index", new { controller="ApplicationUsages", action="Index", id=item.TrackedApplicationID })
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TrackedApplicationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TrackedApplicationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TrackedApplicationID })
+        </td>
+    </tr>
+}
+
+</table>
