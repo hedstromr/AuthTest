@@ -16,4 +16,14 @@ namespace AuthTest.Models
 
         public TrackedApplication TrackedApplication { get; set; }
     }
+
+    public class ApplicationUsageData
+    {
+        public ApplicationUsageData()
+        {
+        }
+
+        public int TrackedApplicationID { get; set; }
+        public int ApplicationUsageCounter { get; set; }
+    }
 }

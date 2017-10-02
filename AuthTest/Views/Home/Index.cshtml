@@ -13,6 +13,31 @@
         <p>
             Lots of text...
         </p>
+        @Html.Partial("ShowApplicationUsageControl", new ViewDataDictionary(this.ViewData) { { "applicationID", 2 } })
+        <p></p>
         <p>@Html.ActionLink("Tracked Applications", "Index", "TrackedApplications")</p>
     </div>
 </div>
+
+@section Scripts {
+
+<script>
+
+    $(document).ready(function () {
+        CheckStatus(2);
+    });
+
+    function CheckStatus(applicationID) {
+        var options = {};
+        options.url = "/api/ApplicationUsagesWebApi/GetApplicationUsage/" + applicationID;
+        options.type = "GET";
+        options.dataType = "json";
+        options.contentType = "application/json";
+        options.success = function (data) {
+            $("#app_counter").html("<h2>" + data.ApplicationUsageCounter + "</h2>");
+        }
+        $.ajax(options);
+        setTimeout(CheckStatus, 3000, applicationID);
+    };
+</script>
+}

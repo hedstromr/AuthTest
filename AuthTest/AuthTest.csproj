@@ -297,6 +297,7 @@
     <Content Include="Views\TrackedApplications\Index.cshtml" />
     <Content Include="Views\ApplicationUsages\Details.cshtml" />
     <Content Include="Views\ApplicationUsages\Index.cshtml" />
+    <Content Include="Views\Shared\ShowApplicationUsageControl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,10 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Description;
 using AuthTest.Models;
+using System.Diagnostics;
+using System;
+using System.Globalization;
+using System.Linq;
 
 namespace AuthTest.Controllers
 {
@@ -23,6 +27,19 @@ namespace AuthTest.Controllers
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = applicationUsage.ApplicationUsageID }, applicationUsage);
+        }
+
+        [ResponseType(typeof(ApplicationUsageData))]
+        public IHttpActionResult GetApplicationUsage(int id)
+        {
+            ApplicationUsageData result = new ApplicationUsageData();
+            result.TrackedApplicationID = id;
+            result.ApplicationUsageCounter = db.ApplicationUsages.Count(m => m.TrackedApplicationID == id);
+
+            string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+            Trace.WriteLine($"{timestamp} GetApplicationUsage id = {id} counter = {result.ApplicationUsageCounter}");
+
+            return CreatedAtRoute("DefaultApi", new { id = id }, result);
         }
 
         protected override void Dispose(bool disposing)
