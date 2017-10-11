@@ -32,6 +32,9 @@ namespace AuthTest.Controllers
         [ResponseType(typeof(ApplicationUsageData))]
         public IHttpActionResult GetApplicationUsage(int id)
         {
+            db.Database.Log = s => {
+                Debug.Print(s);
+            };
             ApplicationUsageData result = new ApplicationUsageData();
             result.TrackedApplicationID = id;
             result.ApplicationUsageCounter = db.ApplicationUsages.Count(m => m.TrackedApplicationID == id);
